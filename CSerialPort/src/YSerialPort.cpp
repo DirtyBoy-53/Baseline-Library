@@ -1,9 +1,11 @@
-﻿#include "CSerialPort/YSerialPort.h"
+#include "CSerialPort/YSerialPort.h"
 #include <QDebug>
+#include <QElapsedTimer>
+#include <QDateTime>
+#include <QThread>
 
 struct YSerialPort::Impl{
     CSerialPort m_serialPort;
-
     char m_buf[1024]{0};
 };
 
@@ -50,6 +52,23 @@ bool YSerialPort::sendData(QByteArray data)
     else return true;
 }
 
+QByteArray YSerialPort::readData(int timeOut)
+{
+    QThread::msleep(200);//延时是为了保证数据已经发送过来
+    QByteArray buf;
+    QElapsedTimer time;
+    time.start();
+    while(time.elapsed() < timeOut){
+        int len = m_impl->m_serialPort.readAllData(m_impl->m_buf);
+        if(len > 0) {
+            buf.resize(len);
+            memcpy(buf.data(),m_impl->m_buf,len);
+            break;
+        }
+    }
+    return buf;
+}
+
 QString YSerialPort::getErrorInfo()
 {
     return m_impl->m_serialPort.getLastErrorMsg();
@@ -64,12 +83,12 @@ void YSerialPort::onReadEvent(const char *portName, unsigned int readBufferLen)
         int len = m_impl->m_serialPort.readData(m_impl->m_buf, readBufferLen > 1023 ? 1023 : readBufferLen);
         if(len > 0){
             auto sigConNum = receivers(SIGNAL(emitUpdateReceive(QByteArray)));
+            buf.resize(len);
+            memcpy(buf.data(),m_impl->m_buf,len);
             if(sigConNum > 0 ){
-                buf.resize(len);
-                memcpy(buf.data(),m_impl->m_buf,len);
                 emitUpdateReceive(buf);
             }else{
-                qInfo() << QString("Unable to send serial data because there is no signal slot connection.[%1]").arg(sigConNum);
+                recvMsg(buf);
             }
         }
     }

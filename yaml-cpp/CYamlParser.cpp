@@ -84,7 +84,7 @@ bool CYamlParser::save()
         qWarning() << e.what();
         return false;
     }
-    m_Impl->m_isLoad = false;
+    //m_Impl->m_isLoad = false;
     return true;
 }
 

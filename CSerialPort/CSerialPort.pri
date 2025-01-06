@@ -1,7 +1,8 @@
 INCLUDEPATH += "$$PWD/include"
+INCLUDEPATH += "$$PWD/include/CSerialPort"
 
 HEADERS +=  $$PWD/include/CSerialPort/ibuffer.hpp\
-            $$PWD/include/CSerialPort/import.bat\
+#            $$PWD/include/CSerialPort/import.bat\
             $$PWD/include/CSerialPort/ithread.hpp\
             $$PWD/include/CSerialPort/itimer.hpp\
             $$PWD/include/CSerialPort/iutils.hpp\

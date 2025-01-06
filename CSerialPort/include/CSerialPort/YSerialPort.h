@@ -1,4 +1,4 @@
-#ifndef YSERIALPORT_H
+﻿#ifndef YSERIALPORT_H
 #define YSERIALPORT_H
 
 #include <QObject>

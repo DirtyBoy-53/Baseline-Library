@@ -1,4 +1,4 @@
-#include "CSerialPort/YSerialPort.h"
+﻿#include "CSerialPort/YSerialPort.h"
 #include <QDebug>
 #include <QElapsedTimer>
 #include <QDateTime>

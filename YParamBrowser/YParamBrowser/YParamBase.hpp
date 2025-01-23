@@ -123,11 +123,11 @@ public:
 
 
 
-    inline  YParamEnum::ParamType    getEParamType()     const { return eParamType; }
-    inline  QString                  getSParamName()     const { return sParamName; }
-    inline  QVariant                 getVParamValue()    const { return vParamValue; }
-    inline  QVariant                 getVParamRange()    const { return vParamRange; }
-    inline  QString                  getSParamTip()      const { return sParamTip; }
+    inline  YParamEnum::ParamType    getEParamType()     const { if (this) return eParamType; }
+    inline  QString                  getSParamName()     const { if (this) return sParamName; }
+    inline  QVariant                 getVParamValue()    const { if (this) return vParamValue; }
+    inline  QVariant                 getVParamRange()    const { if (this) return vParamRange; }
+    inline  QString                  getSParamTip()      const { if (this) return sParamTip; }
 
     virtual QString                  getValueByRange()   const { return QString();}
     virtual void                     setVParamValue(const QVariant &newVParamValue, const QtProperty *property=nullptr);

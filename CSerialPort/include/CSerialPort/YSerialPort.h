@@ -25,7 +25,7 @@ public:
     std::vector<SerialPortInfo> getSerialPortInfo();
 
     // 连接串口
-    bool connect(const char *portName,
+    bool open(const char *portName,
               int baudRate = itas109::BaudRate9600,
               itas109::Parity parity = itas109::ParityNone,
               itas109::DataBits dataBits = itas109::DataBits8,

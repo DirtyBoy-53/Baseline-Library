@@ -46,6 +46,7 @@ public:
     YGroupParamMap groupParamMap() const;
     void setGroupParamMap(const YGroupParamMap &groupParamMap);
 
+    void clearGroupParamMap();
 private:
     void initConnect();
 

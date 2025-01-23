@@ -24,7 +24,7 @@ std::vector<SerialPortInfo> YSerialPort::getSerialPortInfo()
     return CSerialPortInfo::availablePortInfos();
 }
 
-bool YSerialPort::connect(const char *portName, int baudRate,
+bool YSerialPort::open(const char *portName, int baudRate,
                        Parity parity, DataBits dataBits,
                        StopBits stopbits, FlowControl flowControl,
                        unsigned int readBufferSize)
@@ -46,6 +46,7 @@ void YSerialPort::close()
 
 bool YSerialPort::sendData(QByteArray data)
 {
+    if (!isOpen()) return false;
     int ret{-1};
     ret = m_impl->m_serialPort.writeData(data.data(), data.size());
     if(ret == -1) return false;
@@ -54,6 +55,7 @@ bool YSerialPort::sendData(QByteArray data)
 
 QByteArray YSerialPort::readData(int timeOut)
 {
+    if (!isOpen()) return QByteArray();
     QThread::msleep(200);//延时是为了保证数据已经发送过来
     QByteArray buf;
     QElapsedTimer time;

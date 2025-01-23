@@ -232,6 +232,8 @@ bool YParamManager::importParam(const QString &path)
     parseXML(path + "/config.xml", groupParam);
     if(!groupParam.isEmpty()) {
         mGroupParamMap = groupParam;
+    }else{
+        return false;
     }
     on_update_ui();
     return true;
@@ -355,14 +357,16 @@ QtVariantProperty * getProperty(QtVariantPropertyManager *variantManager, YParam
             item->setAttribute(QLatin1String("minimum"), rangePair.first);
             item->setAttribute(QLatin1String("maximum"), rangePair.second);
         }
-        item->setAttribute(QLatin1String("singleStep"), 10);
+        int step = std::abs(rangePair.first-rangePair.second) > 1000 ? 10 : 1;
+        item->setAttribute(QLatin1String("singleStep"), step);
     } else if (param.get()->getEParamType() == YParamEnum::ParamType_Qreal) {
         auto rangePair = param.get()->getVParamRange().value<QPair<qreal,qreal>>();
         if (rangePair.first || rangePair.second) {
             item->setAttribute(QLatin1String("minimum"), rangePair.first);
             item->setAttribute(QLatin1String("maximum"), rangePair.second);
         }
-        item->setAttribute(QLatin1String("singleStep"), 10);
+        int step = std::abs(rangePair.first-rangePair.second) > 1000 ? 10 : 1;
+        item->setAttribute(QLatin1String("singleStep"), step);
     } else if (param.get()->getEParamType() == YParamEnum::ParamType_PassWordStr) {
         item->setAttribute(QLatin1String("echoMode"), QLineEdit::PasswordEchoOnEdit);
     } else if (param.get()->getEParamType() == YParamEnum::ParamType_Enum) {
@@ -410,8 +414,13 @@ void YParamManager::on_update_ui()
 
 void YParamManager::setGroupParamMap(const YGroupParamMap &groupParamMap)
 {
-    mGroupParamMap.clear();
+    clearGroupParamMap();
     mGroupParamMap = groupParamMap;
+}
+
+void YParamManager::clearGroupParamMap()
+{
+    mGroupParamMap.clear();
 }
 
 YParamManager::YGroupParamMap YParamManager::groupParamMap() const

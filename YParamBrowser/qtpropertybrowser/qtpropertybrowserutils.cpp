@@ -436,6 +436,11 @@ QtFilePathBoxWidget::QtFilePathBoxWidget(QWidget *parent) :
                             "border: none;"
                             "background: transparent;"
                             "}");
+    // 读取颜色取反(避免整体QSS修改后 按钮无法显示)
+    QPalette palette = m_button->palette();
+    palette.setColor(QPalette::Button, Qt::gray);
+    m_button->setPalette(palette);
+
     m_button->setText("...");
 
     m_button->setCursor(Qt::ArrowCursor);//如果不设置鼠标样式，鼠标移动到按钮上依旧显示为编辑框的鼠标样式。

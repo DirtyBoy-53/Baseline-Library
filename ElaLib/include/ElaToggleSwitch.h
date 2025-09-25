@@ -1,4 +1,4 @@
-#ifndef ELATOGGLESWITCH_H
+﻿#ifndef ELATOGGLESWITCH_H
 #define ELATOGGLESWITCH_H
 
 #include <QWidget>

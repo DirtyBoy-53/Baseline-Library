@@ -1,4 +1,4 @@
-#ifndef ELALISTVIEW_H
+﻿#ifndef ELALISTVIEW_H
 #define ELALISTVIEW_H
 
 #include <QListView>

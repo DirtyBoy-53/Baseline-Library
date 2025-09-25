@@ -1,4 +1,4 @@
-#ifndef ELAEXPONENTIALBLUR_H
+﻿#ifndef ELAEXPONENTIALBLUR_H
 #define ELAEXPONENTIALBLUR_H
 
 #include <QObject>

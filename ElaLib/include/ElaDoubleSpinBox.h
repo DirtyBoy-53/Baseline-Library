@@ -1,4 +1,4 @@
-#ifndef ELADOUBLESPINBOX_H
+﻿#ifndef ELADOUBLESPINBOX_H
 #define ELADOUBLESPINBOX_H
 
 #include <QDoubleSpinBox>

@@ -1,4 +1,4 @@
-#ifndef ELAACRYLICURLCARD_H
+﻿#ifndef ELAACRYLICURLCARD_H
 #define ELAACRYLICURLCARD_H
 
 #include <QPixmap>

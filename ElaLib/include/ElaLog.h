@@ -1,4 +1,4 @@
-#ifndef ELALOG_H
+﻿#ifndef ELALOG_H
 #define ELALOG_H
 
 #include <QObject>

@@ -1,4 +1,4 @@
-#ifndef ELATABWIDGET_H
+﻿#ifndef ELATABWIDGET_H
 #define ELATABWIDGET_H
 
 #include <QTabWidget>

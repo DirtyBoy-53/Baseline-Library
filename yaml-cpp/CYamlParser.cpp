@@ -1,4 +1,4 @@
-#include "CYamlParser.h"
+﻿#include "CYamlParser.h"
 #include <fstream>
 #include <QDebug>
 #include "yaml-cpp/yaml.h"

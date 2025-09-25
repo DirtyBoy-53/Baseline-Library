@@ -1,4 +1,4 @@
-#ifndef ELASCROLLAREA_H
+﻿#ifndef ELASCROLLAREA_H
 #define ELASCROLLAREA_H
 
 #include <QScrollArea>

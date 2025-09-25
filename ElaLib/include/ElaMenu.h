@@ -1,4 +1,4 @@
-#ifndef ELAMENU_H
+﻿#ifndef ELAMENU_H
 #define ELAMENU_H
 
 #include <QMenu>

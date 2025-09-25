@@ -1,4 +1,4 @@
-#ifndef ELATOGGLEBUTTON_H
+﻿#ifndef ELATOGGLEBUTTON_H
 #define ELATOGGLEBUTTON_H
 
 #include <QPushButton>

@@ -1,4 +1,4 @@
-#ifndef ELAEVENTBUS_H
+﻿#ifndef ELAEVENTBUS_H
 #define ELAEVENTBUS_H
 
 #include <QObject>

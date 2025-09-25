@@ -1,4 +1,4 @@
-#ifndef ELASCROLLBAR_H
+﻿#ifndef ELASCROLLBAR_H
 #define ELASCROLLBAR_H
 
 #include <QAbstractScrollArea>

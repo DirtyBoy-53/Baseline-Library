@@ -36,11 +36,40 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
 
 请注意，本 README 文件是基于提供的项目代码和假设的项目结构生成的。在实际项目中，可能需要根据项目的具体情况进行调整。
 
+
+## 使用案例
+### 使用带用户权限、按项目保存以及完整界面的接口
+```C++
+auto paramWidget = new YParamBrowserWidget();   // 创建窗口
+
+// 构建默认参数
+std::vector<yparam_s> param;
+
+// 管理员参数
+param.emplace_back(yparam_s(Administrator, "系统参数", YParamBrowser::YParamEnum::ParamType_Int, 10, "开机时间", 20));
+param.emplace_back(yparam_s(Administrator, "系统参数", YParamBrowser::YParamEnum::ParamType_File, "", "脚本路径", ""));
+param.emplace_back(yparam_s(Administrator, "系统参数", YParamBrowser::YParamEnum::ParamType_Folder, "", "生成路径", ""));
+param.emplace_back(yparam_s(Administrator, "用户参数", YParamBrowser::YParamEnum::ParamType_Enum, "COM1", "串口号", "COM2", QStringList() << "COM1" << "COM2"));
+
+// 操作员参数
+param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_Int, 10, "开机时间", 20));
+param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_PointF, QPointF(1.1,1.2), "坐标", QPointF(1.1,1.2)));
+param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_Date, QDate::currentDate(), "北京时间", QDate::currentDate()));
+param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_Color, QColor(100,100,100,50), "颜色", QColor(100,100,100,50)));
+
+// 添加参数
+paramWidget->addParams(param);
+
+// 更新参数到界面
+paramWidget->slotUpdateTableWidget();
+
+```
+### 使用最基础的接口
 ```C++
     using namespace YParamBrowser;
     YParamManager *manager = new YParamManager();
-
     QVBoxLayout *layout = new QVBoxLayout(centralWidget());
+    
     YParamPtr param1 = YParamFactory::createParameter(
             YParamEnum::ParamType_Int,
             QVariant(11),
@@ -49,7 +78,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
             "Test1",
             "Test1_Tips"
         );
-
+        
     YParamPtr param2 = YParamFactory::createParameter(
             YParamEnum::ParamType_Int,
             QVariant(12),
@@ -58,7 +87,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
             "Test2",
             "Test2_Tips"
         );
-
+        
     YParamPtr param3 = YParamFactory::createParameter(
         YParamEnum::ParamType_String,
         QVariant("Hello YParam"),
@@ -67,7 +96,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test3",
         "Test3_Tips"
         );
-
+        
     YParamPtr param4 = YParamFactory::createParameter(
         YParamEnum::ParamType_Double,
         QVariant(3.1415926),
@@ -76,7 +105,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test4",
         "Test4_Tips"
         );
-
+        
     YParamPtr param5 = YParamFactory::createParameter(
         YParamEnum::ParamType_PassWordStr,
         QVariant(12345678),
@@ -85,7 +114,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test5",
         "Test5_Tips"
         );
-
+        
     YParamPtr param6 = YParamFactory::createParameter(
         YParamEnum::ParamType_Enum,
         QVariant(2),
@@ -94,7 +123,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test6",
         "Test6_Tips"
         );
-
+        
     YParamPtr param7 = YParamFactory::createParameter(
         YParamEnum::ParamType_Bool,
         QVariant(false),
@@ -103,7 +132,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test7",
         "Test7_Tips"
         );
-
+        
     YParamPtr param8 = YParamFactory::createParameter(
         YParamEnum::ParamType_File,
         QVariant("D:/file.txt"),
@@ -112,7 +141,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test8",
         "Test8_Tips"
         );
-
+        
     YParamPtr param9 = YParamFactory::createParameter(
         YParamEnum::ParamType_Folder,
         QVariant("D:/"),
@@ -121,7 +150,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test9",
         "Test9_Tips"
         );
-
+        
     YParamPtr param10 = YParamFactory::createParameter(
         YParamEnum::ParamType_Date,
         QVariant("2025-01-11"),
@@ -130,7 +159,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test10",
         "Test10_Tips"
         );
-
+        
     YParamPtr param11 = YParamFactory::createParameter(
         YParamEnum::ParamType_Time,
         QVariant("15:35:11"),
@@ -139,7 +168,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test11",
         "Test11_Tips"
         );
-
+        
     YParamPtr param12 = YParamFactory::createParameter(
         YParamEnum::ParamType_DateTime,
         QVariant("2025-01-11 15:39:52.768"),
@@ -148,7 +177,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test12",
         "Test12_Tips"
         );
-
+        
     YParamPtr param13 = YParamFactory::createParameter(
         YParamEnum::ParamType_KeySeq,
         QVariant("Ctrl+Q"),
@@ -157,8 +186,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test13",
         "Test13_Tips"
         );
-
-
+        
     YParamPtr param14 = YParamFactory::createParameter(
         YParamEnum::ParamType_Locale,
         QVariant("zh_CN"),
@@ -167,7 +195,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test14",
         "Test14_Tips"
         );
-
+        
     YParamPtr param15 = YParamFactory::createParameter(
         YParamEnum::ParamType_Point,
         QVariant(QPoint(1,1)),
@@ -176,7 +204,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test15",
         "Test15_Tips"
         );
-
+        
     YParamPtr param16 = YParamFactory::createParameter(
         YParamEnum::ParamType_PointF,
         QVariant(QPointF(1.234,1.3333)),
@@ -185,7 +213,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
         "Test16",
         "Test16_Tips"
         );
-
+        
     YParamPtr param17 = YParamFactory::createParameter(
                 YParamEnum::ParamType_Size,
                 QVariant(QSize(1,1)),
@@ -194,7 +222,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
                 "Test17",
                 "Test17_Tips"
                 );
-
+                
     YParamPtr param18 = YParamFactory::createParameter(
                 YParamEnum::ParamType_SizeF,
                 QVariant(QSizeF(1.11,2.22)),
@@ -203,7 +231,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
                 "Test18",
                 "Test18_Tips"
                 );
-
+                
     YParamPtr param19 = YParamFactory::createParameter(
                 YParamEnum::ParamType_Rect,
                 QVariant(QRect(1,2,3,4)),
@@ -212,7 +240,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
                 "Test19",
                 "Test19_Tips"
                 );
-
+                
     YParamPtr param20 = YParamFactory::createParameter(
                 YParamEnum::ParamType_RectF,
                 QVariant(QRectF(1.1,2.2,3.3,4.4)),
@@ -221,7 +249,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
                 "Test20",
                 "Test20_Tips"
                 );
-
+                
     YParamPtr param21 = YParamFactory::createParameter(
                 YParamEnum::ParamType_Flag,
                 QVariant(1),
@@ -230,7 +258,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
                 "Test21",
                 "Test21_Tips"
                 );
-
+                
     YParamPtr param22 = YParamFactory::createParameter(
                 YParamEnum::ParamType_Font,
                 QVariant(QFont()),
@@ -239,7 +267,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
                 "Test22",
                 "Test22_Tips"
                 );
-
+                
     YParamPtr param23 = YParamFactory::createParameter(
                 YParamEnum::ParamType_Color,
                 QVariant(QColor(100,100,100,50)),
@@ -248,7 +276,7 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
                 "Test23",
                 "Test23_Tips"
                 );
-
+                
     manager->addParam(param1, "IntParam");
     manager->addParam(param2, "IntParam");
     manager->addParam(param3, "StringParam");
@@ -272,7 +300,6 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
     manager->addParam(param21, "Flag");
     manager->addParam(param22, "Font");
     manager->addParam(param23, "Color");
-
-
     manager->layoutAddParamWidget(layout);
     manager->on_update_ui();
+```

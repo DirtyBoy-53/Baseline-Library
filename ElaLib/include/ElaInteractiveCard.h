@@ -1,4 +1,4 @@
-#ifndef ELAINTERACTIVECARD_H
+﻿#ifndef ELAINTERACTIVECARD_H
 #define ELAINTERACTIVECARD_H
 
 #include <QPixmap>

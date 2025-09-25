@@ -1,4 +1,4 @@
-#ifndef ELATOOLBAR_H
+﻿#ifndef ELATOOLBAR_H
 #define ELATOOLBAR_H
 
 #include <QToolBar>

@@ -1,4 +1,4 @@
-#ifndef ELAAPPLICATION_H
+﻿#ifndef ELAAPPLICATION_H
 #define ELAAPPLICATION_H
 
 #include <QIcon>

@@ -1,4 +1,4 @@
-#ifndef ELACALENDAR_H
+﻿#ifndef ELACALENDAR_H
 #define ELACALENDAR_H
 
 #include <QWidget>

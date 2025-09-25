@@ -1,4 +1,4 @@
-#ifndef ELAGRAPHICSITEM_H
+﻿#ifndef ELAGRAPHICSITEM_H
 #define ELAGRAPHICSITEM_H
 
 #include <QGraphicsObject>

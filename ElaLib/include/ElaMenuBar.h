@@ -1,4 +1,4 @@
-#ifndef ELAMENUBAR_H
+﻿#ifndef ELAMENUBAR_H
 #define ELAMENUBAR_H
 
 #include <QMenuBar>

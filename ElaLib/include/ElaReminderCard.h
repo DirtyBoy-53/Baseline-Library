@@ -1,4 +1,4 @@
-#ifndef ELAREMINDERCARD_H
+﻿#ifndef ELAREMINDERCARD_H
 #define ELAREMINDERCARD_H
 
 #include <QPushButton>

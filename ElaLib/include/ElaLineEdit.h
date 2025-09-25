@@ -1,4 +1,4 @@
-#ifndef ELALINEEDIT_H
+﻿#ifndef ELALINEEDIT_H
 #define ELALINEEDIT_H
 
 #include <QLineEdit>

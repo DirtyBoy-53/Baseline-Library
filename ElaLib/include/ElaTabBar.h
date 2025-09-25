@@ -1,4 +1,4 @@
-#ifndef ELATABBAR_H
+﻿#ifndef ELATABBAR_H
 #define ELATABBAR_H
 
 #include <QDrag>

@@ -1,4 +1,4 @@
-#ifndef ELADOCKWIDGET_H
+﻿#ifndef ELADOCKWIDGET_H
 #define ELADOCKWIDGET_H
 
 #include <QDockWidget>

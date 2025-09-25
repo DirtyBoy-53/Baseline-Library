@@ -1,4 +1,4 @@
-#ifndef ELATREEVIEW_H
+﻿#ifndef ELATREEVIEW_H
 #define ELATREEVIEW_H
 
 #include <QTreeView>

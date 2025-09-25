@@ -1,4 +1,4 @@
-#ifndef ELAGRAPHICSLINEITEM_H
+﻿#ifndef ELAGRAPHICSLINEITEM_H
 #define ELAGRAPHICSLINEITEM_H
 
 #include <QGraphicsPathItem>

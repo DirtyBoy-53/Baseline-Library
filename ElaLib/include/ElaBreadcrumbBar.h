@@ -1,4 +1,4 @@
-#ifndef ELABREADCRUMBBAR_H
+﻿#ifndef ELABREADCRUMBBAR_H
 #define ELABREADCRUMBBAR_H
 #include <QWidget>
 

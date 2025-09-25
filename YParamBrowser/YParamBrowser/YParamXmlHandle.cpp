@@ -1,4 +1,4 @@
-#include "YParamXmlHandle.h"
+﻿#include "YParamXmlHandle.h"
 
 #include <QDomDocument>
 #include <QFile>

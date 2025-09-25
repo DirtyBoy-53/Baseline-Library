@@ -1,4 +1,4 @@
-#ifndef ELASCROLLPAGEAREA_H
+﻿#ifndef ELASCROLLPAGEAREA_H
 #define ELASCROLLPAGEAREA_H
 
 #include <QWidget>

@@ -1,4 +1,4 @@
-#ifndef ELAMESSAGEBUTTON_H
+﻿#ifndef ELAMESSAGEBUTTON_H
 #define ELAMESSAGEBUTTON_H
 
 #include <QPushButton>

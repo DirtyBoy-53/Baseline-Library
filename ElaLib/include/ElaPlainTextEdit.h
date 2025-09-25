@@ -1,4 +1,4 @@
-#ifndef ELAPLAINTEXTEDIT_H
+﻿#ifndef ELAPLAINTEXTEDIT_H
 #define ELAPLAINTEXTEDIT_H
 
 #include <QPlainTextEdit>

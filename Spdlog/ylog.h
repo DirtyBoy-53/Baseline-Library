@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "spdlog/spdlog.h"
 #include "spdlog/async.h"
 #include "spdlog/sinks/daily_file_sink.h"

@@ -1,4 +1,4 @@
-#ifndef ELATOOLBUTTON_H
+﻿#ifndef ELATOOLBUTTON_H
 #define ELATOOLBUTTON_H
 
 #include <QToolButton>

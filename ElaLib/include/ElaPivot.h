@@ -1,4 +1,4 @@
-#ifndef ELAPIVOT_H
+﻿#ifndef ELAPIVOT_H
 #define ELAPIVOT_H
 #include <QWidget>
 

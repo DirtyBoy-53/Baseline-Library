@@ -451,7 +451,7 @@ QtFilePathBoxWidget::QtFilePathBoxWidget(QWidget *parent) :
     m_button->installEventFilter(this);
     connect(m_button, SIGNAL(clicked()), this, SLOT(buttonClicked()));
 //    lt->addWidget(m_button);
-    m_path->setPlaceholderText("/home/....");
+    m_path->setPlaceholderText("/path/....");
 }
 QString QtFilePathBoxWidget::value() const
 {

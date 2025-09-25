@@ -1,4 +1,4 @@
-#ifndef ELATEXT_H
+﻿#ifndef ELATEXT_H
 #define ELATEXT_H
 
 #include <QLabel>

@@ -1,4 +1,4 @@
-#ifndef ELAAPPBAR_H
+﻿#ifndef ELAAPPBAR_H
 #define ELAAPPBAR_H
 
 #include <QWidget>

@@ -1,4 +1,4 @@
-#ifndef ELACOLORDIALOG_H
+﻿#ifndef ELACOLORDIALOG_H
 #define ELACOLORDIALOG_H
 
 #include <QDialog>

@@ -1,4 +1,4 @@
-#ifndef ELAPROMOTIONCARD_H
+﻿#ifndef ELAPROMOTIONCARD_H
 #define ELAPROMOTIONCARD_H
 #include <QWidget>
 

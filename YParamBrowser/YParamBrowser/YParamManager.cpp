@@ -25,8 +25,6 @@ YParamManager::YParamManager(QObject *parent)
     , mEditor(std::make_unique<QtTreePropertyBrowser>())
     , mVariantManager(std::make_unique<QtVariantPropertyManager>())
     , mVariantFactory(std::make_unique<QtVariantEditorFactory>())
-    , mBtnSaveParam(new QPushButton("保存"))
-    , mBtnCancel(new QPushButton("取消"))
 {
     qRegisterMetaType<YParamEnum::ParamType>("YParamEnum::ParamType");
     initConnect();
@@ -53,24 +51,43 @@ void YParamManager::addParam(YParamPtr param, const QString &group)
     }
 }
 
-void YParamManager::layoutAddParamWidget(QBoxLayout *layout, bool isEnableBtn)
+void YParamManager::updateParam()
 {
-    auto *hLayout = new QHBoxLayout();
-    hLayout->addStretch();
-    hLayout->addWidget(mBtnSaveParam);
-    hLayout->addSpacing(10);
-    hLayout->addWidget(mBtnCancel);
-    hLayout->addSpacing(10);
-    auto *vLayout = new QVBoxLayout();
-    vLayout->addWidget(mEditor.get());
-    if (isEnableBtn) {
-        vLayout->addLayout(hLayout);
+    // 1. 读取本地文件
+    // 1.1. 如果有内容
+    // 1.1.1 暂存读取的值，看软件缓存中的参数是否包含每一项
+    // 1.1.2 包含则将缓存中的值更新为读取值
+    // 1.2. 无内容
+    // 1.2.1 直接使用缓存中的参数即可（相当于初次创建）
+
+    // 2. 导出一次参数到本地(刷新一次所有参数)
+
+
+    // 读取本地文件
+    YGroupParamMap groupParam;
+    importParam(groupParam);
+
+    // 根据是否由内容判断是否需要更新缓存数据
+    if (groupParam.size()) {
+        for (auto titleKey : groupParam.keys()) {
+            for (auto key : groupParam[titleKey].keys()) {
+                if (mGroupParamMap.contains(titleKey) &&
+                    mGroupParamMap[titleKey].contains(key)) {
+                    mGroupParamMap[titleKey][key] = groupParam[titleKey][key];
+                }
+            }
+        }
     }
-    layout->addLayout(vLayout);
+
+    // 刷新参数到本地
+    exportParam();
 }
 
 
-
+void YParamManager::getParamWidget(QtTreePropertyBrowser *&browser)
+{
+    browser = mEditor.get();
+}
 
 template<typename T>
 T YParamManager::getParamValue(const QString &name)
@@ -226,22 +243,21 @@ bool YParamManager::parseXML(const QString &filePath, YGroupParamMap &group)
     return true;
 }
 
-bool YParamManager::importParam(const QString &path)
+bool YParamManager::importParam(YGroupParamMap &param)
 {
     YGroupParamMap groupParam;
-    parseXML(path + "/config.xml", groupParam);
+    parseXML(mSavePath + "/" + mFileName + ".xml", groupParam);
     if(!groupParam.isEmpty()) {
-        mGroupParamMap = groupParam;
+        param = groupParam;
     }else{
         return false;
     }
-    on_update_ui();
     return true;
 }
 
-bool YParamManager::exportParam(const QString &path)
+bool YParamManager::exportParam()
 {
-    QFile file(path+"/config.xml");//打开或新建xml文件
+    QFile file(mSavePath + "/" + mFileName + ".xml");//打开或新建xml文件
     if(!file.open(QIODevice::WriteOnly|QIODevice::Truncate)) {//Truncate表示清空原来的内容
         QMessageBox::warning(nullptr,"错误","文件打开失败");
         return false;
@@ -282,13 +298,6 @@ bool YParamManager::exportParam(const QString &path)
 
 void YParamManager::initConnect()
 {
-    connect(mBtnSaveParam, &QPushButton::clicked, [=]{
-        exportParam(mSavePath);
-    });
-
-    connect(mBtnCancel, &QPushButton::clicked, [=]{
-        importParam(mSavePath);
-    });
 
     connect(mVariantManager.get(), &QtVariantPropertyManager::valueChanged, [=](QtProperty *property, const QVariant &val){
         if (!mValueChangeSigEnable) return; // 在未初始化完成之前,值发生变化不响应
@@ -382,7 +391,7 @@ QtVariantProperty * getProperty(QtVariantPropertyManager *variantManager, YParam
 
 void YParamManager::on_update_ui()
 {
-    // 1.遍历mParamMap
+    // 遍历mParamMap 更新到界面
     mValueChangeSigEnable = false;
     mVariantManager.get()->clear();
     mEditor.get()->clear();
@@ -407,8 +416,7 @@ void YParamManager::on_update_ui()
         mEditor->setRootIsDecorated(false);
     }
 
-    mValueChangeSigEnable = true;
-
+    mValueChangeSigEnable = true; 
 
 }
 
@@ -435,5 +443,10 @@ void YParamManager::setSavePath(const QString &newSavePath)
     if (!dir.exists()) {
         dir.mkpath(mSavePath);
     }
+}
+
+void YParamManager::setConfigName(const QString &newName)
+{
+    mFileName = newName;
 }
 

@@ -1,4 +1,4 @@
-#ifndef ELANAVIGATIONBAR_H
+﻿#ifndef ELANAVIGATIONBAR_H
 #define ELANAVIGATIONBAR_H
 
 #include <QWidget>

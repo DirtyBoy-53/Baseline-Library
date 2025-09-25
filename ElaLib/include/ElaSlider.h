@@ -1,4 +1,4 @@
-#ifndef ELASLIDER_H
+﻿#ifndef ELASLIDER_H
 #define ELASLIDER_H
 
 #include <QSlider>

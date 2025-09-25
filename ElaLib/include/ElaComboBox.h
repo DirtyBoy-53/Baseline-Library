@@ -1,4 +1,4 @@
-#ifndef ELACOMBOBOX_H
+﻿#ifndef ELACOMBOBOX_H
 #define ELACOMBOBOX_H
 
 #include <QComboBox>

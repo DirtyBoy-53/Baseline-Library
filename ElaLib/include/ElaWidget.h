@@ -1,4 +1,4 @@
-#ifndef ELAWIDGET_H
+﻿#ifndef ELAWIDGET_H
 #define ELAWIDGET_H
 
 #include <QWidget>

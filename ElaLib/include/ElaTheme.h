@@ -1,4 +1,4 @@
-#ifndef ELATHEME_H
+﻿#ifndef ELATHEME_H
 #define ELATHEME_H
 
 #include <QObject>

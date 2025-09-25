@@ -1,4 +1,4 @@
-#ifndef ELATOOLTIP_H
+﻿#ifndef ELATOOLTIP_H
 #define ELATOOLTIP_H
 
 #include <QWidget>

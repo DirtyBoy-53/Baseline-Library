@@ -1,4 +1,4 @@
-#ifndef ELAPROMOTIONVIEW_H
+﻿#ifndef ELAPROMOTIONVIEW_H
 #define ELAPROMOTIONVIEW_H
 
 #include <QPixmap>

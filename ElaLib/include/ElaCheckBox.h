@@ -1,4 +1,4 @@
-#ifndef ELACHECKBOX_H
+﻿#ifndef ELACHECKBOX_H
 #define ELACHECKBOX_H
 
 #include <QCheckBox>

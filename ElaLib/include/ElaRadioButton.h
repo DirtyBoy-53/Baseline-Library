@@ -1,4 +1,4 @@
-#ifndef ELARADIOBUTTON_H
+﻿#ifndef ELARADIOBUTTON_H
 #define ELARADIOBUTTON_H
 
 #include <QRadioButton>

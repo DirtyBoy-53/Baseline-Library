@@ -1,4 +1,4 @@
-#ifndef ELAGRAPHICSVIEW_H
+﻿#ifndef ELAGRAPHICSVIEW_H
 #define ELAGRAPHICSVIEW_H
 
 #include <QGraphicsView>

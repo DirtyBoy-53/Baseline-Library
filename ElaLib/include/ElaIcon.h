@@ -1,4 +1,4 @@
-#ifndef ELAICON_H
+﻿#ifndef ELAICON_H
 #define ELAICON_H
 #include <QIcon>
 

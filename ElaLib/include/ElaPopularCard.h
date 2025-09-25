@@ -1,4 +1,4 @@
-#ifndef ELAPOPULARCARD_H
+﻿#ifndef ELAPOPULARCARD_H
 #define ELAPOPULARCARD_H
 
 #include <QPixmap>

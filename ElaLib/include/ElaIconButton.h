@@ -1,4 +1,4 @@
-#ifndef ELAICONBUTTON_H
+﻿#ifndef ELAICONBUTTON_H
 #define ELAICONBUTTON_H
 
 #include <QPushButton>

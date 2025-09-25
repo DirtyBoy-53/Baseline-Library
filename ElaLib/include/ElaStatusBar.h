@@ -1,4 +1,4 @@
-#ifndef ELASTATUSBAR_H
+﻿#ifndef ELASTATUSBAR_H
 #define ELASTATUSBAR_H
 
 #include <QStatusBar>

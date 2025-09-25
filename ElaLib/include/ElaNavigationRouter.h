@@ -1,4 +1,4 @@
-#ifndef ELANAVIGATIONROUTER_H
+﻿#ifndef ELANAVIGATIONROUTER_H
 #define ELANAVIGATIONROUTER_H
 
 #include <QObject>

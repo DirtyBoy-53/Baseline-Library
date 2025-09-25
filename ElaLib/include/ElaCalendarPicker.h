@@ -1,4 +1,4 @@
-#ifndef ELACALENDARPICKER_H
+﻿#ifndef ELACALENDARPICKER_H
 #define ELACALENDARPICKER_H
 
 #include <QPushButton>

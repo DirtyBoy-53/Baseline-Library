@@ -1,4 +1,4 @@
-#ifndef YPARAMXMLHANDLE_H
+﻿#ifndef YPARAMXMLHANDLE_H
 #define YPARAMXMLHANDLE_H
 
 

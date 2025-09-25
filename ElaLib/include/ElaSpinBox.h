@@ -1,4 +1,4 @@
-#ifndef ELASPINBOX_H
+﻿#ifndef ELASPINBOX_H
 #define ELASPINBOX_H
 
 #include <QSpinBox>

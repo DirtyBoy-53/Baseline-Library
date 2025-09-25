@@ -1,4 +1,4 @@
-#ifndef ELASUGGESTBOX_H
+﻿#ifndef ELASUGGESTBOX_H
 #define ELASUGGESTBOX_H
 
 #include <QVariantMap>

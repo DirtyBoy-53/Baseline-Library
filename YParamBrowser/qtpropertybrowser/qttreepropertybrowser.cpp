@@ -1,4 +1,4 @@
-// Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+﻿// Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 // SPDX-License-Identifier: BSD-3-Clause
 
 
@@ -436,13 +436,16 @@ void QtTreePropertyBrowserPrivate::init(QWidget *parent)
     m_treeWidget = new QtPropertyEditorView(parent);
     m_treeWidget->setEditorPrivate(this);
     m_treeWidget->setIconSize(QSize(18, 18));
+
     layout->addWidget(m_treeWidget);
     parent->setFocusProxy(m_treeWidget);
 
     m_treeWidget->setColumnCount(2);
+    m_treeWidget->headerItem()->setTextAlignment(0, Qt::AlignCenter);
+    m_treeWidget->headerItem()->setTextAlignment(1, Qt::AlignCenter);
     QStringList labels;
-    labels.append(QCoreApplication::translate("QtTreePropertyBrowser", "Property"));
-    labels.append(QCoreApplication::translate("QtTreePropertyBrowser", "Value"));
+    labels.append(QCoreApplication::translate("QtTreePropertyBrowser", "属性"));
+    labels.append(QCoreApplication::translate("QtTreePropertyBrowser", "值"));
     m_treeWidget->setHeaderLabels(labels);
     m_treeWidget->setAlternatingRowColors(true);
     m_treeWidget->setEditTriggers(QAbstractItemView::EditKeyPressed);

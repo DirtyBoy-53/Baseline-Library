@@ -1,4 +1,4 @@
-#ifndef ELAMESSAGEBAR_H
+﻿#ifndef ELAMESSAGEBAR_H
 #define ELAMESSAGEBAR_H
 
 #include <QWidget>

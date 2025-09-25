@@ -1,4 +1,4 @@
-#ifndef ELAPUSHBUTTON_H
+﻿#ifndef ELAPUSHBUTTON_H
 #define ELAPUSHBUTTON_H
 
 #include <QPushButton>

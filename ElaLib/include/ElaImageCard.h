@@ -1,4 +1,4 @@
-#ifndef ELAIMAGECARD_H
+﻿#ifndef ELAIMAGECARD_H
 #define ELAIMAGECARD_H
 
 #include <QWidget>

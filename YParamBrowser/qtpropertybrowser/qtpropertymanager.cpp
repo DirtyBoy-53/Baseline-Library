@@ -1,4 +1,4 @@
-// Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+﻿// Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 // SPDX-License-Identifier: BSD-3-Clause
 
 

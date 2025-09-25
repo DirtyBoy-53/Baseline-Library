@@ -13,9 +13,9 @@ class QPushButton;
 namespace YParamBrowser {
 
 
-class YParamManager : public QObject{
+class YParamManager : public QObject
+{
     Q_OBJECT
-
 public:
     using YParamMap = QMap<QString, YParamPtr>;
     using YGroupParamMap = QMap<QString, YParamMap>;
@@ -25,23 +25,24 @@ public:
 
     // 增加参数
     void addParam(YParamPtr param, const QString& group = "Param1");
+    void updateParam(); // 更新本地参数
+
 
     // 读取参数
     template <typename T>
     T getParamValue(const QString &name);
 
-
-    void layoutAddParamWidget(QBoxLayout *layout, bool isEnableBtn = false);
-
+    void getParamWidget(QtTreePropertyBrowser *&browser);
     // std::unique_ptr<QtTreePropertyBrowser> creatParamWidget(QWidget *parent);
 
 
     // 导入xml参数文件
-    bool importParam(const QString &path);
+    bool importParam( YGroupParamMap &param);
     // 导出参数到xml文件
-    bool exportParam(const QString &path);
+    bool exportParam();
 
     void setSavePath(const QString &newSavePath);
+    void setConfigName(const QString &newName);
 
     YGroupParamMap groupParamMap() const;
     void setGroupParamMap(const YGroupParamMap &groupParamMap);
@@ -54,6 +55,7 @@ private:
 
 public slots:
     void on_update_ui();
+
 private:
 
     YGroupParamMap                              mGroupParamMap;
@@ -61,9 +63,8 @@ private:
     std::unique_ptr<QtVariantPropertyManager>   mVariantManager;
     std::unique_ptr<QtVariantEditorFactory>     mVariantFactory;
 
-    QPushButton *mBtnSaveParam;
-    QPushButton *mBtnCancel;
     QString     mSavePath{"./Config"};
+    QString     mFileName{"config"};
 
     bool        mValueChangeSigEnable{false};
 };

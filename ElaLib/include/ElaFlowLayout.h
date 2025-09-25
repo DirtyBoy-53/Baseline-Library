@@ -1,4 +1,4 @@
-#ifndef ELAFLOWLAYOUT_H
+﻿#ifndef ELAFLOWLAYOUT_H
 #define ELAFLOWLAYOUT_H
 
 #include <QLayout>

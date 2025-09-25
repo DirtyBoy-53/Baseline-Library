@@ -1,4 +1,4 @@
-#ifndef ELAPROGRESSBAR_H
+﻿#ifndef ELAPROGRESSBAR_H
 #define ELAPROGRESSBAR_H
 
 #include <QProgressBar>

@@ -1,4 +1,4 @@
-#ifndef ELATABLEVIEW_H
+﻿#ifndef ELATABLEVIEW_H
 #define ELATABLEVIEW_H
 
 #include <QTableView>

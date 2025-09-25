@@ -1,4 +1,4 @@
-#ifndef ELAGRAPHICSSCENE_H
+﻿#ifndef ELAGRAPHICSSCENE_H
 #define ELAGRAPHICSSCENE_H
 
 #include <QDataStream>

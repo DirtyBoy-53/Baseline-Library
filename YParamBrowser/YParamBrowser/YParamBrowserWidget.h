@@ -67,6 +67,7 @@ class YParamBrowserWidget : public QWidget
 public:
     explicit YParamBrowserWidget(QWidget *parent = nullptr);
 
+    void setUser(const yparam_user_e &user);
     void addParams(const std::vector<yparam_s> &param);
     void setProject(const QString &name);
 
@@ -86,6 +87,7 @@ private:
     // std::vector<YParamBrowser::YParamManager> mParamManager;
     std::map<yparam_user_e, YParamBrowser::YParamManager> mParamManager;
     QStringList mUserName = QStringList() << "管理员" << "操作员";
+    yparam_user_e mUser{Administrator};
 };
 
 #endif // YPARAMBROWSERWIDGET_H

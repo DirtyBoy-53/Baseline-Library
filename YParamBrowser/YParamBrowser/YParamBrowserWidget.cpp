@@ -15,6 +15,11 @@ YParamBrowserWidget::YParamBrowserWidget(QWidget *parent)
     initConnect();
 }
 
+void YParamBrowserWidget::setUser(const yparam_user_e &user)
+{
+    mUser = user;
+}
+
 void YParamBrowserWidget::addParams(const std::vector<yparam_s> &param)
 {
     using namespace YParamBrowser;
@@ -79,6 +84,7 @@ void YParamBrowserWidget::slotUpdateTableWidget()
         } else {
             qDebug() << "错误: 无法获取参数浏览器部件，指针为空。";
         }
-        manager.on_update_ui();
+        auto isEnable = mUser > user ? false : true;    // 当前参数权限 < 设置用户权限 则不运行操作
+        manager.on_update_ui(isEnable);
     }
 }

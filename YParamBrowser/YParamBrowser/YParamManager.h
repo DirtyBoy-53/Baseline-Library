@@ -54,7 +54,7 @@ private:
     bool parseXML(const QString& filePath, YGroupParamMap &group);
 
 public slots:
-    void on_update_ui();
+    void on_update_ui(const bool &isEnable = true);
 
 private:
 

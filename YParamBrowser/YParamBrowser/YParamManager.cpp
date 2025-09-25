@@ -349,12 +349,12 @@ int getTypeByParamType(YParamEnum::ParamType type){
     return 0;
 }
 
-QtVariantProperty * getProperty(QtVariantPropertyManager *variantManager, YParamPtr param)
+QtVariantProperty * getProperty(QtVariantPropertyManager *variantManager, YParamPtr param, const bool &isEnable = true)
 {
     QtVariantProperty *item = variantManager->addProperty(getTypeByParamType(param.get()->getEParamType()), param.get()->getSParamName());
     item->setValue(param.get()->getVParamValue());
     item->setToolTip(param.get()->getSParamTip());
-
+    item->setEnabled(isEnable);
     // 属性设置
     if (param.get()->getEParamType() == YParamEnum::ParamType_File) {
         item->setAttribute(QLatin1String("setFilePathType"), true);
@@ -389,7 +389,7 @@ QtVariantProperty * getProperty(QtVariantPropertyManager *variantManager, YParam
     return item;
 }
 
-void YParamManager::on_update_ui()
+void YParamManager::on_update_ui(const bool &isEnable)
 {
     // 遍历mParamMap 更新到界面
     mValueChangeSigEnable = false;
@@ -407,7 +407,7 @@ void YParamManager::on_update_ui()
             const QString& paramKey = innerIt.key();  // 获取参数的键
             const YParamPtr& paramValue = innerIt.value();  // 获取参数的值
             qDebug() << __func__ << ":" << paramKey << paramValue->toString();
-            topItem->addSubProperty(getProperty(mVariantManager.get(), paramValue));
+            topItem->addSubProperty(getProperty(mVariantManager.get(), paramValue, isEnable));
         }
 
         mEditor->setFactoryForManager(mVariantManager.get(), mVariantFactory.get());

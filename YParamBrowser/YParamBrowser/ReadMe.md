@@ -40,28 +40,28 @@ YParamBrowser 是一个基于 Qt 框架的参数浏览器，旨在提供一个�
 ## 使用案例
 ### 使用带用户权限、按项目保存以及完整界面的接口
 ```C++
-auto paramWidget = new YParamBrowserWidget();   // 创建窗口
-
-// 构建默认参数
-std::vector<yparam_s> param;
-
-// 管理员参数
-param.emplace_back(yparam_s(Administrator, "系统参数", YParamBrowser::YParamEnum::ParamType_Int, 10, "开机时间", 20));
-param.emplace_back(yparam_s(Administrator, "系统参数", YParamBrowser::YParamEnum::ParamType_File, "", "脚本路径", ""));
-param.emplace_back(yparam_s(Administrator, "系统参数", YParamBrowser::YParamEnum::ParamType_Folder, "", "生成路径", ""));
-param.emplace_back(yparam_s(Administrator, "用户参数", YParamBrowser::YParamEnum::ParamType_Enum, "COM1", "串口号", "COM2", QStringList() << "COM1" << "COM2"));
-
-// 操作员参数
-param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_Int, 10, "开机时间", 20));
-param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_PointF, QPointF(1.1,1.2), "坐标", QPointF(1.1,1.2)));
-param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_Date, QDate::currentDate(), "北京时间", QDate::currentDate()));
-param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_Color, QColor(100,100,100,50), "颜色", QColor(100,100,100,50)));
-
-// 添加参数
-paramWidget->addParams(param);
-
-// 更新参数到界面
-paramWidget->slotUpdateTableWidget();
+    auto paramWidget = new YParamBrowserWidget();   // 创建窗口
+    
+    // 构建默认参数
+    std::vector<yparam_s> param;
+    
+    // 管理员参数
+    param.emplace_back(yparam_s(Administrator, "系统参数", YParamBrowser::YParamEnum::ParamType_Int, 10, "开机时间", 20));
+    param.emplace_back(yparam_s(Administrator, "系统参数", YParamBrowser::YParamEnum::ParamType_File, "", "脚本路径", ""));
+    param.emplace_back(yparam_s(Administrator, "系统参数", YParamBrowser::YParamEnum::ParamType_Folder, "", "生成路径", ""));
+    param.emplace_back(yparam_s(Administrator, "用户参数", YParamBrowser::YParamEnum::ParamType_Enum, "COM1", "串口号", "COM2", QStringList() << "COM1" << "COM2"));
+    
+    // 操作员参数
+    param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_Int, 10, "开机时间", 20));
+    param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_PointF, QPointF(1.1,1.2), "坐标", QPointF(1.1,1.2)));
+    param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_Date, QDate::currentDate(), "北京时间", QDate::currentDate()));
+    param.emplace_back(yparam_s(Operator, "基础参数", YParamBrowser::YParamEnum::ParamType_Color, QColor(100,100,100,50), "颜色", QColor(100,100,100,50)));
+    
+    // 添加参数
+    paramWidget->addParams(param);
+    
+    // 更新参数到界面
+    paramWidget->slotUpdateTableWidget();
 
 ```
 ### 使用最基础的接口

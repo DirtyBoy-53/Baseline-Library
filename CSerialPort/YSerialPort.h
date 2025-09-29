@@ -1,4 +1,4 @@
-﻿#ifndef YSERIALPORT_H
+#ifndef YSERIALPORT_H
 #define YSERIALPORT_H
 
 #include <QObject>
@@ -19,7 +19,7 @@ public:
     bool sendData(QByteArray data);
 
     // 读取数据
-    QByteArray readData(int timeOut=1000);
+    QByteArray readSerialData(int timeOut=1000);
 
     // 读取串口列表
     std::vector<SerialPortInfo> getSerialPortInfo();
@@ -43,6 +43,8 @@ public:
     QString getErrorInfo();
 
     // CSerialPortListener interface
+    void setAsynchronous(bool async);
+    bool isAsynchronous() const;
 protected:
     // 信号槽方式：emitUpdateReceive 连接后可接受数据，  重载本方法：不处理,则可以同步方式读取
     virtual void onReadEvent(const char *portName, unsigned int readBufferLen) override;
